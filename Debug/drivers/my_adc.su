@@ -1,0 +1,3 @@
+../drivers/my_adc.c:17:6:ADC_Init	8	static
+../drivers/my_adc.c:57:10:ADC_ReadPolling	8	static
+../drivers/my_adc.c:77:10:ADC_ReadAsync	8	static
