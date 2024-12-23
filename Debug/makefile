@@ -31,7 +31,7 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Ass
+BUILD_ARTIFACT_NAME := Datalogger
 BUILD_ARTIFACT_EXTENSION := axf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
@@ -43,24 +43,24 @@ all:
 	+@$(MAKE) --no-print-directory main-build && $(MAKE) --no-print-directory post-build
 
 # Main-build Target
-main-build: Ass.axf
+main-build: Datalogger.axf
 
 # Tool invocations
-Ass.axf: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
+Datalogger.axf: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -Xlinker -Map="Ass.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T Ass_Debug.ld -o "Ass.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -Xlinker -Map="Datalogger.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T Datalogger_Debug.ld -o "Datalogger.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Ass.axf
+	-$(RM) Datalogger.axf
 	-@echo ' '
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "Ass.axf"; # arm-none-eabi-objcopy -v -O binary "Ass.axf" "Ass.bin" ; # checksum -p MKE16Z64xxx4 -d "Ass.bin";
+	-arm-none-eabi-size "Datalogger.axf"; # arm-none-eabi-objcopy -v -O binary "Datalogger.axf" "Datalogger.bin" ; # checksum -p MKE16Z64xxx4 -d "Datalogger.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents main-build post-build

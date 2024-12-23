@@ -8,14 +8,13 @@
 #ifndef MY_LPIT_H_
 #define MY_LPIT_H_
 #include "MKE16Z4.h"
-#define f 1000000
+#include "stdbool.h"
 
 typedef void (*LPIT_CallBackType)(void); // Function pointer type
-void LPIT_init_adc();
-void LPIT_init(LPIT_CallBackType function);
-void LPIT_StartTimer(uint8_t channel);
-void LPIT_StopTimer(uint8_t channel);
-void LPIT_Delay(uint32_t time);
-
-
+void LPIT_enableClock();
+void LPIT_init();
+void LPIT_startTimer(uint8_t channel);
+void LPIT_delay(uint32_t time);
+void LPIT_setCallBack(LPIT_CallBackType function);
+void LPIT_SetPriority(uint8_t priority);
 #endif /* MY_LPIT_H_ */

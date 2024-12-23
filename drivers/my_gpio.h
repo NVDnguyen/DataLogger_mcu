@@ -71,5 +71,6 @@ void GPIO_Init(const PortConfig_t *portConfig, const GPIOConfig_t *pinConfig);
 void GPIO_WritePin(GPIO_Type *gpio, uint8_t pin, PinState_t state);
 PinState_t GPIO_ReadPin(GPIO_Type *gpio, uint8_t pin);
 void GPIO_TogglePin(GPIO_Type *gpio, uint8_t pin);
-
+void handlePortInterrupt(PORT_Type *port, uint8_t portIndex);
+void GPIO_SetPriority(PORT_Type *port,uint8_t priority);
 #endif /* MY_GPIO_H_ */

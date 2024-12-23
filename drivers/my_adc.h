@@ -8,21 +8,12 @@
 #ifndef MY_ADC_H_
 #define MY_ADC_H_
 #include "MKE16Z4.h"
-/*******************************************************************************
- * Definitions
- ******************************************************************************/
+typedef void (*ADC_CallBackType)(uint32_t adc_value);
 
-#define LPIT_TRIGGER_TIME (1000000U)
-/*******************************************************************************
- * Prototypes
- ******************************************************************************/
-
-void ADC_Init();
-uint16_t ADC_ReadPolling();
-uint16_t ADC_ReadAsync();
-
-
-
+void ADC_ReadAsync(ADC_CallBackType _adcCallback);
+void ADC_Init(uint8_t adc_channel, uint32_t adhc_value);
+uint16_t ADC_ReadSysc();
+void ADC_SetPriority(uint8_t priority);
 #endif /* MY_ADC_H_ */
 
 

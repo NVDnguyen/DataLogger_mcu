@@ -1,0 +1,5 @@
+../source/sensor_service.c:7:6:TEMP_init	8	static
+../source/sensor_service.c:11:7:TEMP_getAvrValue	16	static
+../source/sensor_service.c:25:7:convertADCToCelsius	24	static
+../source/sensor_service.c:32:6:adc_callback	16	static
+../source/sensor_service.c:36:10:calculateAverageTemperature	16	static

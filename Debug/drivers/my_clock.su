@@ -1,0 +1,2 @@
+../drivers/my_clock.c:3:6:CLOCK_enable	16	static
+../drivers/my_clock.c:13:10:CLOCK_getFreq	8	static

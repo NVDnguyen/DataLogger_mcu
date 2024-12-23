@@ -1,0 +1,2 @@
+E:\MCUXpressoIDE\Datalogger\drivers/fsl_clock.h:623:20:CLOCK_SetIpSrc	24	static
+../board/board.c:24:6:BOARD_InitDebugConsole	16	static

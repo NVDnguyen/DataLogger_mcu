@@ -1,0 +1,5 @@
+../drivers/my_uart.c:11:6:LPUART_init	24	static
+../drivers/my_uart.c:35:6:LPUART_enableClock	16	static
+../drivers/my_uart.c:50:6:LPUART_sendData	16	static
+../drivers/my_uart.c:59:9:LPUART_receiveData	16	static
+../drivers/my_uart.c:68:6:testUART	40	static

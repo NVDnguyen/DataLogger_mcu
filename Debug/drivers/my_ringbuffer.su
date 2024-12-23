@@ -1,0 +1,5 @@
+../drivers/my_ringbuffer.c:13:6:RingBuffer_Init	16	static
+../drivers/my_ringbuffer.c:20:6:RingBuffer_IsEmpty	16	static
+../drivers/my_ringbuffer.c:26:6:RingBuffer_IsFull	16	static
+../drivers/my_ringbuffer.c:33:6:RingBuffer_Add	16	static
+../drivers/my_ringbuffer.c:44:9:RingBuffer_Get	32	static

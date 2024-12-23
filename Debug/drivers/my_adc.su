@@ -1,3 +1,7 @@
-../drivers/my_adc.c:17:6:ADC_Init	8	static
-../drivers/my_adc.c:57:10:ADC_ReadPolling	8	static
-../drivers/my_adc.c:77:10:ADC_ReadAsync	8	static
+E:\MCUXpressoIDE\Datalogger\CMSIS/core_cm0plus.h:741:22:__NVIC_EnableIRQ	16	static
+E:\MCUXpressoIDE\Datalogger\CMSIS/core_cm0plus.h:850:22:__NVIC_SetPriority	24	static
+../drivers/my_adc.c:14:6:ADC_Init	16	static
+../drivers/my_adc.c:26:10:ADC_ReadSysc	8	static
+../drivers/my_adc.c:31:6:ADC_ReadAsync	16	static
+../drivers/my_adc.c:44:6:ADC0_IRQHandler	16	static
+../drivers/my_adc.c:50:6:ADC_SetPriority	16	static

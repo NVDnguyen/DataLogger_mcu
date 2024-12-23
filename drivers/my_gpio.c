@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 #include "my_gpio.h"
-#include "core_cm0plus.h"
+
 volatile CallBackType _callback = NULL;
 //	LED_PORT->PCR[gLED_PIN] |= PORT_PCR_MUX(1);
 //	LED_PORT->PCR[rLED_PIN] |= PORT_PCR_MUX(1);
@@ -53,6 +53,14 @@ void GPIO_Init(const PortConfig_t *portCf, const GPIOConfig_t *gpioCf){
 	}
 
 }
+void GPIO_SetPriority(PORT_Type *port,uint8_t priority){
+	if(port == PORTA || port == PORTE){
+		__NVIC_SetPriority(PORTAE_IRQn, priority);
+	}else{
+		__NVIC_SetPriority(PORTBCD_IRQn, priority);
+	}
+}
+
 void ClearPortInterruptFlags(PORT_Type *port) {
 	uint32_t interruptMask = port->ISFR;
     for (uint8_t i = 0; i < 32; i++) {
@@ -62,21 +70,19 @@ void ClearPortInterruptFlags(PORT_Type *port) {
         }
     }
 }
+void handlePortInterrupt(PORT_Type *port, uint8_t portIndex) {
+    if (PCC->CLKCFG[portIndex] & PCC_CLKCFG_CGC_MASK) {
+        if (port->ISFR != 0) {
+            ClearPortInterruptFlags(port); // Xóa cờ ngắt
+        }
+    }
+}
 
 void PORTBCD_IRQHandler(void){
-
-	_callback(GPIOD,2);
-
 	if(NULL != _callback){
-		if(PORTB->ISFR != 0){
-			ClearPortInterruptFlags(PORTB);
-		}
-		if(PORTC->ISFR!=0){
-			ClearPortInterruptFlags(PORTC);
-		}
-		if(PORTD->ISFR !=0){
-			ClearPortInterruptFlags(PORTD);
-		}
+		 handlePortInterrupt(PORTB, PCC_PORTB_INDEX);
+		 handlePortInterrupt(PORTC, PCC_PORTC_INDEX);
+		 handlePortInterrupt(PORTD, PCC_PORTD_INDEX);
 	}
 	//clear pending when duplicate command in same time
 
@@ -84,12 +90,8 @@ void PORTBCD_IRQHandler(void){
 void PORTAE_IRQHandler(void){
 
 	if(NULL != _callback){
-		if(PORTA->ISFR !=0){
-			ClearPortInterruptFlags(PORTA);
-		}
-		if(PORTE->ISFR){
-			ClearPortInterruptFlags(PORTE);
-		}
+		handlePortInterrupt(PORTA, PCC_PORTA_INDEX);
+		handlePortInterrupt(PORTE, PCC_PORTE_INDEX);
 	}
 }
 

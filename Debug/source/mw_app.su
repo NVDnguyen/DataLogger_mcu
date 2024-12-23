@@ -1,0 +1,3 @@
+../source/mw_app.c:12:6:initTemperatureReader	8	static
+../source/mw_app.c:16:10:getTemperatureValue	8	static
+../source/mw_app.c:29:7:convertADCToCelsius	24	static

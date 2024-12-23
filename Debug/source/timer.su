@@ -1,0 +1,5 @@
+../source/timer.c:13:6:TIMER_init	16	static
+../source/timer.c:20:6:TIMER_setCallback	16	static
+../source/timer.c:23:6:lpitCallback	8	static
+../source/timer.c:31:9:TIMER_timeout	8	static
+../source/timer.c:34:6:TIMER_clear	8	static

@@ -1,0 +1,2 @@
+../source/mw_adc.c:8:6:initTemperatureReader	8	static
+../source/mw_adc.c:12:10:getTemperatureValue	8	static

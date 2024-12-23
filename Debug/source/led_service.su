@@ -1,0 +1,14 @@
+E:\MCUXpressoIDE\Datalogger\CMSIS/core_cm0plus.h:850:22:__NVIC_SetPriority	24	static
+E:\MCUXpressoIDE\Datalogger\CMSIS/core_cm0plus.h:1058:26:SysTick_Config	16	static
+../source/led_service.c:15:6:toggleMode	8	static
+../source/led_service.c:19:6:LED_init	16	static
+../source/led_service.c:29:6:LED_start	8	static
+../source/led_service.c:45:6:mode1	16	static
+../source/led_service.c:70:6:mode2	16	static
+../source/led_service.c:94:6:mode3	8	static
+../source/led_service.c:98:6:turnOffAll	8	static
+../source/led_service.c:104:6:initGPIO	104	static
+../source/led_service.c:128:6:enableClock	8	static
+../source/led_service.c:133:6:buttonCallback	16	static
+../source/led_service.c:142:6:SysTick_Handler	8	static
+../source/led_service.c:150:10:millis	8	static
